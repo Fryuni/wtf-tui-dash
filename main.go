@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"os/exec"
 
 	// Blank import of tzdata embeds the timezone database to allow Windows hosts to find timezone
 	// information even if the timezone database is not available on the local system. See release
@@ -25,6 +26,13 @@ import (
 
 func main() {
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
+
+	_ = (&exec.Cmd{
+		Path:   "reset",
+		Stdin:  os.Stdin,
+		Stdout: os.Stdout,
+		Stderr: os.Stderr,
+	}).Run()
 
 	// Parse and handle flags
 	flags := flags.NewFlags()
