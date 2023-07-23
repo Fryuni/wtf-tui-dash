@@ -1,0 +1,5 @@
+{
+  "signal": "SIGTERM",
+  "ext": "go",
+  "exec": "go run .; reset"
+}

@@ -11,7 +11,7 @@ import (
 )
 
 const (
-	maxBufferSize int64 = 1024
+	maxBufferSize int64 = 10240
 )
 
 type Widget struct {
@@ -92,10 +92,10 @@ func (widget *Widget) tailFile() []string {
 
 	// Reverse the array of lines
 	// Offset by two to account for the blank line at the end
-	last := len(logLines) - 2
-	for i := 0; i < len(logLines)/2; i++ {
-		logLines[i], logLines[last-i] = logLines[last-i], logLines[i]
-	}
+	//last := len(logLines) - 2
+	//for i := 0; i < len(logLines)/2; i++ {
+	//	logLines[i], logLines[last-i] = logLines[last-i], logLines[i]
+	//}
 
 	return logLines
 }
