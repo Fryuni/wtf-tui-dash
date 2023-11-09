@@ -1,5 +1,9 @@
 {
   "signal": "SIGTERM",
   "ext": "go",
-  "exec": "go run .; reset"
+  "exec": "go run . && reset",
+  "watch": [
+    ".",
+    "/home/lotus/.config/wtf/config.yml"
+  ]
 }

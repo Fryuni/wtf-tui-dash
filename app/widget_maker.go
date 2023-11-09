@@ -38,6 +38,7 @@ import (
 	"github.com/wtfutil/wtf/modules/googleanalytics"
 	"github.com/wtfutil/wtf/modules/grafana"
 	"github.com/wtfutil/wtf/modules/gspreadsheets"
+	"github.com/wtfutil/wtf/modules/habitica"
 	"github.com/wtfutil/wtf/modules/hackernews"
 	"github.com/wtfutil/wtf/modules/healthchecks"
 	"github.com/wtfutil/wtf/modules/hibp"
@@ -328,6 +329,9 @@ func MakeWidget(
 	case "todoist":
 		settings := todo_plus.FromTodoist(moduleName, moduleConfig, config)
 		widget = todo_plus.NewWidget(tviewApp, redrawChan, pages, settings)
+	case "habitica":
+		settings := habitica.NewSettingsFromYAML(moduleName, moduleConfig, config)
+		widget = habitica.NewWidget(tviewApp, redrawChan, pages, settings)
 	case "transmission":
 		settings := transmission.NewSettingsFromYAML(moduleName, moduleConfig, config)
 		widget = transmission.NewWidget(tviewApp, redrawChan, pages, settings)
